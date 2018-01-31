@@ -1,5 +1,5 @@
 #include "MainWindow.h"
-#include <qtcpsocket.h>
+#include <QTcpSocket>
 #include <QPushButton>
 #include <QDebug>
 #include <QGridLayout>
@@ -11,7 +11,6 @@
 #include "VrDrag.h"
 #include "VrBut.h"
 #include "ModeAuto.h"
-
 
 #define TOP 40
 #define WIDTH 800

@@ -3,9 +3,11 @@
 #include <QPushButton>
 #include <QTimer>
 #include <QLabel>
-#include <QtWidgets>
 #include <QPainter>
-#include <qdebug.h>
+#include <QEvent>
+#include <QMouseEvent>
+#include <QDebug>
+
 
 #define THICK 5
 #define PI 3.14159265

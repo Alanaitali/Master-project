@@ -3,7 +3,7 @@
 #include "VrGrid.h"
 #include "MyTcpSocket.h"
 #include "VrDrag.h"
-#include "qdebug.h"
+#include <QDebug>
 #include <QVBoxLayout>
 
 VrBut::VrBut(VrGrid *vr_grid, VrDrag *dwid, QWidget *parent) :

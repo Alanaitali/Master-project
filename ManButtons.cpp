@@ -1,8 +1,8 @@
 #include "ManButtons.h"
 #include "MyTcpSocket.h"
-#include "QPushButton"
-#include "QDebug"
-#include "QVBoxLayout"
+#include <QPushButton>
+#include <QDebug>
+#include <QVBoxLayout>
 #define MAIN_WINDOW_SIZE 480
 
 

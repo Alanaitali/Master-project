@@ -1,5 +1,5 @@
 #include "MyTcpSocket.h"
-#include "QTcpSocket"
+#include <QTcpSocket>
 #include "MainWindow.h"
 
 QString MyTcpSocket::Id_code= "azertyuiop1234\n";
