@@ -5,6 +5,7 @@
 #include <QDrag>
 #include <QPainter>
 #include "VrDrag.h"
+#include "qwidget.h"
 
 VrDrag::VrDrag(QWidget *parent)
     : QFrame(parent)
