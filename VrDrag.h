@@ -3,6 +3,7 @@
 
 #include <QFrame>
 #include <QPointer>
+#include "qwidget.h"
 
 class QLabel;
 
