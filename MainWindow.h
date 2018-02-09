@@ -14,7 +14,6 @@ class VrDrag;
 class VrGrid;
 class VrBut;
 class ModeAuto;
-class QLineEdit;
 
 class MainWindow : public QWidget
 {
@@ -23,7 +22,6 @@ class MainWindow : public QWidget
 public:
     MainWindow(QWidget *parent = 0);
 private :
-    QPointer<MyTcpSocket> my_socket;
     QPointer<joystick> joy;
     QPointer<rotateButtons> rotBut;
     QPointer<VrGrid> vr_grid;
@@ -38,7 +36,6 @@ private :
     QPointer<QPushButton> calibration;
     QPointer<QPushButton> control;
     QPointer<QGridLayout> layout;
-    QPointer<QLineEdit> line_edit;
 
     void hide_all();
 

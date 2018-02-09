@@ -11,7 +11,6 @@ class QLabel;
 class VrGrid : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit VrGrid(int size, QWidget *parent = 0);
     int matrice [grid_size][grid_size];
@@ -20,8 +19,7 @@ private:
     void mousePressEvent(QMouseEvent *e);
     QPointer <QLabel> newIcon1,newIcon2;
     void fill_matrice(int x, int y, int n);
-    int reset_enable;
-    int block_size;
+    int reset_enable , block_size;
     bool setArrival , setCar;
 protected:
     void dragEnterEvent(QDragEnterEvent *event) override;

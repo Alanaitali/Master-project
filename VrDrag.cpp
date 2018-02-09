@@ -6,7 +6,6 @@
 #include <QPainter>
 #include "VrDrag.h"
 
-
 VrDrag::VrDrag(QWidget *parent)
     : QFrame(parent)
 {
@@ -48,7 +47,6 @@ void VrDrag::mousePressEvent(QMouseEvent *event)
     if (drag->exec(Qt::CopyAction | Qt::MoveAction, Qt::CopyAction) == Qt::MoveAction) {
         child->close();
     } else {
-        //child->show();
         child->setPixmap(pixmap);
     }
 }

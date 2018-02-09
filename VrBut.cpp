@@ -29,13 +29,13 @@ VrBut::VrBut(VrGrid *vr_grid, VrDrag *dwid, QWidget *parent) :
 
 void VrBut::sl_start()
 {
-    if(!MyTcpSocket::sendData("",QString("matrice")))
+    if(!MyTcpSocket::sendData(QString("matrice")))
         qDebug()<<"erreur d'écriture";
 }
 
 void VrBut::sl_reset()
 {
-    if(!MyTcpSocket::sendData("",QString("matrice vide")))
+    if(!MyTcpSocket::sendData(QString("matrice vide")))
         qDebug()<<"erreur d'écriture";
 }
 

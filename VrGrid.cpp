@@ -1,9 +1,9 @@
-#include <QDragEnterEvent>
-#include <QLabel>
 #include <QDebug>
+#include <QLabel>
+#include <QPainter>
+#include <QDragEnterEvent>
 #include <QMimeData>
 #include <QDrag>
-#include <QPainter>
 #include "VrGrid.h"
 
 VrGrid::VrGrid(int size, QWidget *parent) :
@@ -79,7 +79,6 @@ void VrGrid::dropEvent(QDropEvent *event)
 {
     if(event->pos().y() < block_size*grid_size && event->pos().x() < grid_size*block_size)
     {
-
         if (event->mimeData()->hasFormat("application/x-png")){
             QByteArray itemData = event->mimeData()->data("application/x-png");
             QDataStream dataStream(&itemData, QIODevice::ReadOnly);
@@ -87,26 +86,26 @@ void VrGrid::dropEvent(QDropEvent *event)
             QPixmap pixmap;
             dataStream >> pixmap;
 
-            QPoint toto((event->pos().x()/block_size),(event->pos().y()/block_size));
-            if(toto.x() == 0)
-                toto.setX(toto.x() + 1);
-            if(toto.x() == grid_size-1)
-                toto.setX(toto.x() - 1);
-            if(toto.y() == 0)
-                toto.setY(toto.y() + 1);
-            if(toto.y() == grid_size-1)
-                toto.setY(toto.y() - 1);
-            toto.setX(toto.x()*block_size);
-            toto.setY(toto.y()*block_size);
+            QPoint pos((event->pos().x()/block_size),(event->pos().y()/block_size));
+            if(pos.x() == 0)
+                pos.setX(pos.x() + 1);
+            if(pos.x() == grid_size-1)
+                pos.setX(pos.x() - 1);
+            if(pos.y() == 0)
+                pos.setY(pos.y() + 1);
+            if(pos.y() == grid_size-1)
+                pos.setY(pos.y() - 1);
+            pos.setX(pos.x()*block_size);
+            pos.setY(pos.y()*block_size);
             if(itemData.at(itemData.size()-1) == '2'){
-                if(matrice[toto.x()/block_size+1][toto.y()/block_size+1] == 3 ||
-                        matrice[toto.x()/block_size-1][toto.y()/block_size-1] == 3 ||
-                        matrice[toto.x()/block_size+1][toto.y()/block_size-1] == 3 ||
-                        matrice[toto.x()/block_size-1][toto.y()/block_size+1] == 3 )
+                if(matrice[pos.x()/block_size+1][pos.y()/block_size+1] == 3 ||
+                        matrice[pos.x()/block_size-1][pos.y()/block_size-1] == 3 ||
+                        matrice[pos.x()/block_size+1][pos.y()/block_size-1] == 3 ||
+                        matrice[pos.x()/block_size-1][pos.y()/block_size+1] == 3 )
                     return;
                 newIcon1 = new QLabel(this);
                 newIcon1->setPixmap(pixmap);
-                newIcon1->move(toto);
+                newIcon1->move(pos);
                 newIcon1->show();
                 newIcon1->setAttribute(Qt::WA_DeleteOnClose);
                 for (int x = 0 ; x<(grid_size); ++x){
@@ -121,16 +120,16 @@ void VrGrid::dropEvent(QDropEvent *event)
                     reset_enable++;
                     setArrival=false;
                 }
-                fill_matrice(toto.x()/block_size,toto.y()/block_size,2);
+                fill_matrice(pos.x()/block_size,pos.y()/block_size,2);
             }else if(itemData.at(itemData.size()-1) == '3'){
-                if(matrice[toto.x()/block_size+1][toto.y()/block_size+1] == 2 ||
-                        matrice[toto.x()/block_size-1][toto.y()/block_size-1] == 2 ||
-                        matrice[toto.x()/block_size-1][toto.y()/block_size+1] == 2 ||
-                        matrice[toto.x()/block_size+1][toto.y()/block_size-1] == 2)
+                if(matrice[pos.x()/block_size+1][pos.y()/block_size+1] == 2 ||
+                        matrice[pos.x()/block_size-1][pos.y()/block_size-1] == 2 ||
+                        matrice[pos.x()/block_size-1][pos.y()/block_size+1] == 2 ||
+                        matrice[pos.x()/block_size+1][pos.y()/block_size-1] == 2)
                     return;
                 newIcon2 = new QLabel(this);
                 newIcon2->setPixmap(pixmap);
-                newIcon2->move(toto);
+                newIcon2->move(pos);
                 newIcon2->show();
                 newIcon2->setAttribute(Qt::WA_DeleteOnClose);
                 for (int x = 0 ; x<(grid_size); ++x){
@@ -145,7 +144,7 @@ void VrGrid::dropEvent(QDropEvent *event)
                     reset_enable++;
                     setCar=false;
                 }
-                fill_matrice(toto.x()/block_size,toto.y()/block_size,3);
+                fill_matrice(pos.x()/block_size,pos.y()/block_size,3);
             }
             else
             {
@@ -217,7 +216,6 @@ void VrGrid::mousePressEvent(QMouseEvent *e) {
             this->update();
         }else
             qDebug()<<"Click hors de la Zone !";
-
     }
 }
 
