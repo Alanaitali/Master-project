@@ -4,7 +4,7 @@
 
 QString MyTcpSocket::Id_code= "azertyuiop1234\n";
 QString MyTcpSocket::Ip_adrr = "192.168.1.32"; //ip local host
-qint16 MyTcpSocket::Id_port = 975;
+int MyTcpSocket::Id_port = 975;
 bool MyTcpSocket::connect=false;
 QPointer<QTcpSocket> MyTcpSocket::socket = new QTcpSocket(nullptr);
 
@@ -87,4 +87,9 @@ bool MyTcpSocket::sendData(QString data)
 QPointer <QTcpSocket> MyTcpSocket::get_socket()
 {
     return socket;
+}
+
+void MyTcpSocket::set_ip(QString ip)
+{
+    Ip_adrr = ip;
 }

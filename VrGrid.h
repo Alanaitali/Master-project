@@ -11,6 +11,7 @@ class QLabel;
 class VrGrid : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit VrGrid(int size, QWidget *parent = 0);
     int matrice [grid_size][grid_size];

@@ -1,9 +1,9 @@
-#include <QDebug>
-#include <QLabel>
-#include <QPainter>
 #include <QDragEnterEvent>
+#include <QLabel>
+#include <QDebug>
 #include <QMimeData>
 #include <QDrag>
+#include <QPainter>
 #include "VrGrid.h"
 
 VrGrid::VrGrid(int size, QWidget *parent) :
@@ -79,6 +79,7 @@ void VrGrid::dropEvent(QDropEvent *event)
 {
     if(event->pos().y() < block_size*grid_size && event->pos().x() < grid_size*block_size)
     {
+
         if (event->mimeData()->hasFormat("application/x-png")){
             QByteArray itemData = event->mimeData()->data("application/x-png");
             QDataStream dataStream(&itemData, QIODevice::ReadOnly);
@@ -216,6 +217,7 @@ void VrGrid::mousePressEvent(QMouseEvent *e) {
             this->update();
         }else
             qDebug()<<"Click hors de la Zone !";
+
     }
 }
 

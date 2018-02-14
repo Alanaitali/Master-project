@@ -50,6 +50,3 @@ HEADERS += \
 
 RESOURCES += \
     icon.qrc
-
-target.path = /usr/bin
-INSTALLS += target
