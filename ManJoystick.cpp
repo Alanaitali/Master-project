@@ -94,11 +94,11 @@ bool joystick::eventFilter(QObject *obj, QEvent *event)
         {//calcul de l'angle du joystick
             float ex=((float)mouseEvent->pos().x()-WidgetSize/2)/(Rcircle-THICK-Rjoystick/2);
             float ey=(-((float)mouseEvent->pos().y()-WidgetSize/2))/(Rcircle-THICK-Rjoystick/2);
-            if(ey>0)
+            /*if(ey>0)
                 angle = atan2(ey,ex)*TO_DEGRES;
             else
                 angle=360+atan2(ey,ex)*TO_DEGRES;
-            //qDebug()<<"atan2 : " << int(angle);
+            //qDebug()<<"atan2 : " << int(angle);*/
         }
 
         if (mouseEvent->type() == QEvent::MouseButtonPress)
